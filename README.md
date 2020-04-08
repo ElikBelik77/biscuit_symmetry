@@ -18,3 +18,4 @@ You can also see intermidate stages of the algorithm by using the flags:
 --save_matchpoints
 ```
 
+The folder 'images' contains some test biscuit images for your convenience.
