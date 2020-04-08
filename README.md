@@ -12,9 +12,9 @@ To run the script, use the following command:
 python symmetry_detection.py --source image.png --out marked_image.png
 '''
 You can also see intermidate stages of the algorithm by using the flags:
-'''
+```
 --save_feature_points
 --save_hexbin
 --save_matchpoints
-'''
+```
 
