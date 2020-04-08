@@ -21,5 +21,6 @@ You can also see intermidate stages of the algorithm by using the flags:
 ## Examples
 
 ![](examples/1/out.jpg)
+![](examples/3/out.jpg)
 ![](examples/2/out.jpg)
-![](examples/3out.jpg)
+
