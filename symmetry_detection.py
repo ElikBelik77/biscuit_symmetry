@@ -10,7 +10,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--out", type=str, required=True)
     parser.add_argument("-s", "--source", type=str, required=True)
     args = parser.parse_args()
-    bilateral_detector = bilateral_detector.BilateralDetecotor()
+    bilateral_detector = bilateral_detector.BilateralDetector()
     symmetry_drawer = symmetry_drawer.SymmetryDrawer()
     bilateral_detector.find(args.source)
     if args.save_feature_points is not None:

@@ -2,33 +2,36 @@ import cv2
 import numpy as np
 
 
-def find_coordinate_maxhexbin(sorted_vote, vertical):
-    """Try to find the x and y coordinates of the hexbin with max count
+def find_coordinate_maxhexbin(sorted_vote):
+    """
+    This function find the coordinates of the most voted item in the hexbin.
+    :param sorted_vote: the sorted hexbin.
+    :return:
     """
     for k, v in sorted_vote.items():
-        # if mirror line is vertical, return the highest vote
-        if vertical:
-            return k[0], k[1]
-        # otherwise, return the highest vote, whose y is not 0 or pi
+        if k[1] == 0 or k[1] == np.pi:
+            continue
         else:
-            if k[1] == 0 or k[1] == np.pi:
-                continue
-            else:
-                return k[0], k[1]
+            return k[0], k[1]
 
 
 def read_bgr_image(image_path):
     """
-    convert the image into the array/matrix with oroginal color
+    Reads an image in bgr and converts to rgb.
+    :param image_path: the image.
+    :return: the image in rgb
     """
-    image = cv2.imread(image_path)  # convert the image into the array/matrix
-    b, g, r = cv2.split(image)  # get b,g,r
-    image = cv2.merge([r, g, b])  # switch it to rgb
-
-    return image
+    image = cv2.imread(image_path)
+    im_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    return im_rgb
 
 
 def normalize_angle(point):
+    """
+    This function normalizes the angle to radians in the interval [0,pi]
+    :param point:
+    :return:
+    """
     point.angle = np.deg2rad(point.angle)
     point.angle = np.pi - point.angle
     if point.angle < 0.0:
@@ -40,6 +43,12 @@ def midpoint(pi, pj):
 
 
 def angle_with_x_axis(pi, pj):
+    """
+    Calculates the angle of the positive x-axis line from pi to pj.
+    :param pi:
+    :param pj:
+    :return:
+    """
     x, y = pi[0] - pj[0], pi[1] - pj[1]
 
     if x == 0:
@@ -52,7 +61,10 @@ def angle_with_x_axis(pi, pj):
 
 
 def sort_hexbin_by_votes(image_hexbin):
-    """Sort hexbins by decreasing count. (lower vote)
+    """
+    This function sorted the hexbin by votes.
+    :param image_hexbin: the hexbin to sort.
+    :return: sorted hexbin dictionary.
     """
     counts = image_hexbin.get_array()
     ncnts = np.count_nonzero(np.power(10, counts))  # get non-zero hexbins
