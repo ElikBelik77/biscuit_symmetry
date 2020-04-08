@@ -4,7 +4,7 @@
 This project was inspired when I was wondering if my I can programmatically detect if my biscuits have bilateral symmetry.
 
 ## Description
-This project can detect and mark bilateral symmetry using the algorithm from [https://link.springer.com/content/pdf/10.1007%2F11744047_39.pdf](this paper)
+This project can detect and mark bilateral symmetry using the algorithm from [this paper](https://link.springer.com/content/pdf/10.1007%2F11744047_39.pdf)
 
 ## Run
 To run the script, use the following command:
