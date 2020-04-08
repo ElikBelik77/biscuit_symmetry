@@ -8,9 +8,9 @@ This project can detect and mark bilateral symmetry using the algorithm from [th
 
 ## Run
 To run the script, use the following command:
-'''
+```
 python symmetry_detection.py --source image.png --out marked_image.png
-'''
+```
 You can also see intermidate stages of the algorithm by using the flags:
 ```
 --save_feature_points
