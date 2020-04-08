@@ -69,9 +69,9 @@ class SymmetryDrawer:
         for y in range(len(image)):
             try:
                 x = int((r - y * np.sin(theta)) / np.cos(theta))
-                image[y][x] = 255
-                image[y][x + 1] = 255
-                image[y][x - 1] = 255
+                image[y][x] = 0
+                image[y][x + 1] = 0
+                image[y][x - 1] = 0
             except IndexError:
                 continue
         # draw plot
